@@ -3,9 +3,11 @@ import { RouterOutlet } from '@angular/router';
 import { Profile } from './profile/profile';
 import { FormsModule } from '@angular/forms';
 import { SearchBox } from './search-box/search-box';
+import { DisplayCount } from './display-count/display-count';
+import { ControlCount } from './control-count/control-count';
 
 @Component({
-  imports: [RouterOutlet, Profile, FormsModule, SearchBox],
+  imports: [RouterOutlet, Profile, FormsModule, SearchBox, DisplayCount,ControlCount],
   selector: 'app-root',
   styleUrl: './app.css',
   templateUrl: './app.html',

@@ -25,3 +25,11 @@
 <div (mouseenter)="handleEvent($event.type)" class="div2">
 
 </div>
+
+<h2>{{data}}</h2>
+<button (click)="updateData(60,'amrita priyadarsini')">Update Data</button>
+<button (click)="handle($event)">Click</button>
+<input type ="text" (change) ="handle($event)">
+<div (mouseenter)="handle($event)">
+    <h1>Test Event</h1>
+</div>

@@ -13,6 +13,7 @@ export class App {
   name ="Amrita Priyadarsini"
   email = "priyadarsiniamrita832@gmail.com"
   count=0
+  data:any
   addNumbers(a:number, b:number){
     return a+b;
   }
@@ -34,7 +35,17 @@ export class App {
    // console.log(event?.target.value); prints the input Value but event parameter is of any type 
     
     console.log(eventName); // prints event name - input, change or click
-
+  }
+  updateData(val:number, user:string){
+    this.data = val
+    console.log(user)
+    console.log(this.sum(10,20))
+  }
+  sum(a:number,b:number):number{
+    return a+b
+  }
+  handle(val: Event | PointerEvent |MouseEvent){
+    console.log(val);
     
   }
 }

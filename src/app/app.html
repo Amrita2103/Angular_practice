@@ -49,3 +49,40 @@
 <h2>Height: {{height()}}</h2>
 <h2>Area: {{ area()}}</h2>
 <button (click)="handleHeight()">Update Height</button>
+<button (click)="handleUsers()">show updated users</button>
+<br>
+<p> VALUE: {{name1()}}</p>
+<input type ="text" [value] = "name1()" (input) ="setValue($event.target.value)">
+<button (click) = "resetValue()">Reset Value</button>
+<h1>Control flow</h1>
+<div>
+    @if(isLogin()){
+        <span>Welcome</span>
+        <button (click) ="handleLogin(false)">Log Out</button>
+    }
+    @else{
+        <span>Please Log in</span>
+        <button (click) ="handleLogin(true)">Log in </button>
+    }
+</div>
+<div>
+    <ul>
+    @for(user of users9(); track user){
+        <li>{{user}}</li>
+    }
+    </ul>
+</div>
+<hr />
+<h1>Two Way Binding</h1>
+<h1>{{age}}</h1>
+<!-- <input type ="text"  [(ngModel)]="age"> -->
+ <input type ="text" [ngModel] = "age" (ngModelChange) = "age = $event">
+ <!-- either the first way - short one or this one -->
+  <h1>{{userData3().name}}</h1>
+  <input type ="text" [value] = "userData3().name" (input) = "updateData3('name', $event.target.value)">
+
+ <h1>{{userData3().age}}</h1>
+  <input type ="text" [value] = "userData3().age" (input) = "updateData3('age', $event.target.value)">
+
+   <h1>{{userData3().email}}</h1>
+  <input type ="text" [value] = "userData3().email" (input) = "updateData3('email', $event.target.value)">

@@ -1,9 +1,10 @@
-import { Component, computed, effect, signal } from '@angular/core';
+import { Component, computed, effect, signal, WritableSignal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { Profile } from './profile/profile';
+import { FormsModule } from '@angular/forms';
 
 @Component({
-  imports: [RouterOutlet, Profile],
+  imports: [RouterOutlet, Profile, FormsModule],
   selector: 'app-root',
   styleUrl: './app.css',
   templateUrl: './app.html',
@@ -22,6 +23,17 @@ export class App {
   height = signal(100)
   width = signal(20)
   area = computed(()=> this.height() * this.width())
+  data5 : WritableSignal<string |number | boolean> = signal<string|number|boolean>("amrita") // data type of value stored inside the signal
+  users:WritableSignal<string[]> = signal(['amrita', 'priya', 'peter'])
+  name1:WritableSignal<string> = signal('')
+  isLogin = signal(true)
+  users9 = signal(["Amrita", "aakash", "diya", "riya", "suhani"])
+  age =20
+  userData3 = signal({
+    name: "AMRITA",
+    age: 23,
+    email: "amrita@gmail.com"
+  })
   constructor(){
     effect(()=>{
       console.log("This is data : ",this.data1); // properties cannot update here
@@ -79,5 +91,27 @@ export class App {
   }
   handleHeight(){
     this.height.set(this.height() + 10)
+  }
+  handleData5(){
+   this.data5.set(true)
+  }
+  handleUsers(){
+    this.users.update((item) => [...item, "bruce"])
+    console.log(this.users());
+    
+  }
+  resetValue(){
+    this.name1.set("Amrita")
+  }
+  setValue(val:string){
+    this.name1.set(val)
+  }
+  handleLogin(status:boolean){
+    this.isLogin.set(status)
+  }
+  updateData3(key:string, val:string){
+    
+      this.userData3.update((item) => ({...item, [key]:val}))
+    
   }
 }

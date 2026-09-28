@@ -14,6 +14,9 @@ export class App {
   email = "priyadarsiniamrita832@gmail.com"
   count=0
   data:any
+  btnDisable = true
+  inputReadonly = false // we changed from true to false --> property binding follows the change but 
+  //interpolation doesn't 
   addNumbers(a:number, b:number){
     return a+b;
   }
@@ -47,5 +50,8 @@ export class App {
   handle(val: Event | PointerEvent |MouseEvent){
     console.log(val);
     
+  }
+  toggle(){
+    this.btnDisable=!this.btnDisable
   }
 }

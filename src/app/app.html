@@ -33,3 +33,10 @@
 <div (mouseenter)="handle($event)">
     <h1>Test Event</h1>
 </div>
+<button disabled="{{btnDisable}}">click</button>
+<button [disabled]="btnDisable">Property Binding</button>
+<button (click)="toggle()">Toggle </button>
+<br>
+<br>
+<input type ="text" readonly="{{inputReadonly}}">
+<input type="text" [readonly] = "inputReadonly">

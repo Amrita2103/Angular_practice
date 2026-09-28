@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, signal } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   imports: [],
@@ -6,4 +7,17 @@ import { Component } from '@angular/core';
   styleUrl: './about.css',
   templateUrl: './about.html',
 })
-export class About {}
+export class About {
+  username = signal('')
+  constructor( public route: ActivatedRoute){
+
+  }
+  ngOnInit(){
+    this.route.params.subscribe((params)=>{
+      console.log(params);
+      this.username.set(params['name'])
+    })
+
+  }
+
+}

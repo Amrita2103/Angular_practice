@@ -30,4 +30,11 @@ export class App {
   showUserName(){
     console.log("Hello");
   }
+  handleEvent(eventName:string){
+   // console.log(event?.target.value); prints the input Value but event parameter is of any type 
+    
+    console.log(eventName); // prints event name - input, change or click
+
+    
+  }
 }

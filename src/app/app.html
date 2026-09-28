@@ -100,3 +100,11 @@
   <h3>{{ newData() | json }}</h3>
   <h3>{{ title2() | trimText | uppercase}}</h3>
   <h3>{{title1 | trimText:8}}</h3>
+  <hr />
+  <ul>
+    <li><a routerLink="/">Home</a></li>
+     <li><a routerLink="/about">About</a></li>
+      <li><a routerLink="/login">Login</a></li>
+       <li><a routerLink="/profile">Profile</a></li>
+  </ul>
+  <router-outlet></router-outlet>

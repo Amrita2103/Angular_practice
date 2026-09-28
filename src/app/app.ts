@@ -1,5 +1,5 @@
 import { Component, computed, effect, signal, WritableSignal } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { RouterLink, RouterOutlet } from '@angular/router';
 import { Profile } from './profile/profile';
 import { FormsModule } from '@angular/forms';
 import { SearchBox } from './search-box/search-box';
@@ -9,7 +9,7 @@ import { CommonModule } from '@angular/common';
 import { TrimTextPipe } from './custom-pipe/trim-text-pipe';
 
 @Component({
-  imports: [CommonModule, RouterOutlet, Profile, FormsModule, SearchBox, DisplayCount,ControlCount, TrimTextPipe],
+  imports: [CommonModule, RouterOutlet, Profile, FormsModule, SearchBox, DisplayCount,ControlCount, TrimTextPipe, RouterOutlet, RouterLink],
   selector: 'app-root',
   styleUrl: './app.css',
   templateUrl: './app.html',

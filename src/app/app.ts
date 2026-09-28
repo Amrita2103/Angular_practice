@@ -1,4 +1,4 @@
-import { Component, signal } from '@angular/core';
+import { Component, computed, effect, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { Profile } from './profile/profile';
 
@@ -17,6 +17,23 @@ export class App {
   btnDisable = true
   inputReadonly = false // we changed from true to false --> property binding follows the change but 
   //interpolation doesn't 
+  data1 =100
+  count1 =signal(0)
+  height = signal(100)
+  width = signal(20)
+  area = computed(()=> this.height() * this.width())
+  constructor(){
+    effect(()=>{
+      console.log("This is data : ",this.data1); // properties cannot update here
+      console.log("This is count: ", this.count1());// we know when count1 is updated 
+      if(this.count1() == 10){
+        this.count1.set(0) // thus we can perform any kind of action with signals - signals are reactive 
+      }
+
+      
+    })
+  }
+
   addNumbers(a:number, b:number){
     return a+b;
   }
@@ -53,5 +70,14 @@ export class App {
   }
   toggle(){
     this.btnDisable=!this.btnDisable
+  }
+  updateData1(){
+    this.data1++
+  }
+  updateCount1(){
+    this.count1.set(this.count1()+1)
+  }
+  handleHeight(){
+    this.height.set(this.height() + 10)
   }
 }

@@ -40,3 +40,12 @@
 <br>
 <input type ="text" readonly="{{inputReadonly}}">
 <input type="text" [readonly] = "inputReadonly">
+<h3>Signals</h3>
+<button (click) = "updateData1()">Update Data</button>
+<h3>{{data1}}</h3>
+<button (click) = "updateCount1()">Update Count</button>
+<h3>Signal : {{count1()}}</h3>
+<h1>Computed Signals </h1>
+<h2>Height: {{height()}}</h2>
+<h2>Area: {{ area()}}</h2>
+<button (click)="handleHeight()">Update Height</button>

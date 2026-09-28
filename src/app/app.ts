@@ -2,9 +2,10 @@ import { Component, computed, effect, signal, WritableSignal } from '@angular/co
 import { RouterOutlet } from '@angular/router';
 import { Profile } from './profile/profile';
 import { FormsModule } from '@angular/forms';
+import { SearchBox } from './search-box/search-box';
 
 @Component({
-  imports: [RouterOutlet, Profile, FormsModule],
+  imports: [RouterOutlet, Profile, FormsModule, SearchBox],
   selector: 'app-root',
   styleUrl: './app.css',
   templateUrl: './app.html',

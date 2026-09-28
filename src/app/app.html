@@ -92,3 +92,11 @@
   <app-display-count></app-display-count>
   <hr />
   <app-control-count></app-control-count>
+  <hr />
+  <h1> Using pipes </h1>
+  <h2>{{ title1 | uppercase }}</h2>
+  <h2>{{ title2() | titlecase }} </h2>
+  <h3>Amount : {{ amount | currency:'USD'}}</h3>
+  <h3>{{ newData() | json }}</h3>
+  <h3>{{ title2() | trimText | uppercase}}</h3>
+  <h3>{{title1 | trimText:8}}</h3>

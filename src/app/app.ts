@@ -5,15 +5,21 @@ import { FormsModule } from '@angular/forms';
 import { SearchBox } from './search-box/search-box';
 import { DisplayCount } from './display-count/display-count';
 import { ControlCount } from './control-count/control-count';
+import { CommonModule } from '@angular/common';
+import { TrimTextPipe } from './custom-pipe/trim-text-pipe';
 
 @Component({
-  imports: [RouterOutlet, Profile, FormsModule, SearchBox, DisplayCount,ControlCount],
+  imports: [CommonModule, RouterOutlet, Profile, FormsModule, SearchBox, DisplayCount,ControlCount, TrimTextPipe],
   selector: 'app-root',
   styleUrl: './app.css',
   templateUrl: './app.html',
 })
 export class App {
   protected readonly title = signal('Hello Angular');
+  title1 = " code step by step"
+  title2 = signal(" i need a water bottle ")
+  amount = 4567893
+  newData = signal({name:"Amrita", age:23, email: " amrita@gmail.com"})
   name ="Amrita Priyadarsini"
   email = "priyadarsiniamrita832@gmail.com"
   count=0
@@ -32,6 +38,7 @@ export class App {
   isLogin = signal(true)
   users9 = signal(["Amrita", "aakash", "diya", "riya", "suhani"])
   age =20
+  
   userData3 = signal({
     name: "AMRITA",
     age: 23,

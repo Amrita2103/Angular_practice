@@ -135,3 +135,14 @@
     <br>
     <button (click)="reset()">Reset</button>
   </form>
+  <hr />
+  
+    @for(product of productData(); track product.id){
+         <ul>
+            <li>Name: {{ product.title}}</li>
+            <li>Price: {{ product.price}}</li>
+            <li>Category: {{ product.category}}</li>
+         </ul>
+    }
+  <hr />
+  <app-user-list></app-user-list>

@@ -7,14 +7,26 @@ import { DisplayCount } from './display-count/display-count';
 import { ControlCount } from './control-count/control-count';
 import { CommonModule } from '@angular/common';
 import { TrimTextPipe } from './custom-pipe/trim-text-pipe';
+import { Products } from './services/products';
+import { UserList } from './components/user-list/user-list';
 
 @Component({
-  imports: [CommonModule, RouterOutlet, Profile, FormsModule, SearchBox, DisplayCount,ControlCount, TrimTextPipe, RouterOutlet, RouterLink, ReactiveFormsModule],
+  imports: [CommonModule, RouterOutlet, Profile, FormsModule, SearchBox, DisplayCount,ControlCount, TrimTextPipe, RouterOutlet, RouterLink, ReactiveFormsModule, UserList],
   selector: 'app-root',
   styleUrl: './app.css',
   templateUrl: './app.html',
 })
 export class App {
+  productData: any = signal("") // we can use the defined interface type instead of any 
+  constructor(private productService: Products){
+
+  }
+  ngOnInit(){
+    this.productService.getProducts().subscribe((data)=>{
+      console.log(data);
+      this.productData.set(data.products)
+    })
+  }
   protected readonly title = signal('Hello Angular');
   title1 = " code step by step"
   title2 = signal(" i need a water bottle ")
@@ -54,7 +66,7 @@ export class App {
     age: 23,
     email: "amrita@gmail.com"
   })
-  constructor(){
+ /* constructor(){
     effect(()=>{
       console.log("This is data : ",this.data1); // properties cannot update here
       console.log("This is count: ", this.count1());// we know when count1 is updated 
@@ -64,7 +76,7 @@ export class App {
 
       
     })
-  }
+  }*/
 
   addNumbers(a:number, b:number){
     return a+b;

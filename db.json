@@ -1,0 +1,10 @@
+{
+"users": [
+    {"id": 1, "name": "amrita priya", "age": 23, "email": "amrita@2103.com"},
+    {"id": 2, "name": "rohan mehta", "age": 27, "email": "rohan@1998.com"},
+    {"id": 3, "name": "sneha patel", "age": 25, "email": "sneha@2001.com"},
+    {"id": 4, "name": "arjun sharma", "age": 30, "email": "arjun@1995.com"},
+    {"id": 5, "name": "kavya nair", "age": 22, "email": "kavya@2004.com"},
+    {"id": 6, "name": "vikram singh", "age": 28, "email": "vikram@1997.com"}
+]
+}

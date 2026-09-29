@@ -108,3 +108,30 @@
        <li><a routerLink="/profile">Profile</a></li>
   </ul>
   <router-outlet></router-outlet>
+
+  <hr />
+  <ul>
+    <li>Name: {{loginForm.value.name}}</li>
+    <li>Password: {{loginForm.value.password}}</li>
+    <li>Email: {{loginForm.value.email}}</li>
+  </ul>
+  <form [formGroup]="loginForm" (ngSubmit) ="handleProfile()" method="post">
+    <input type ="text" formControlName="name" placeholder="enter Name">
+    <br><br>
+    @if(name10?.hasError('required') && name10?.touched){
+      <span>This name field is required </span>
+    }
+     <input type ="password" formControlName="password" placeholder="enter Password">
+    <br><br>
+     <input type ="email"  formControlName="email" placeholder="enter Email">
+    <br><br>
+      @if(email10?.hasError('required') && email10?.touched){
+      <span>This email field is required </span>
+    }
+     @if(email10?.errors?.['email'] && email10?.touched){
+      <span>This email field is not valid</span>
+    }
+    <button [disabled]="loginForm.invalid">Submit</button>
+    <br>
+    <button (click)="reset()">Reset</button>
+  </form>

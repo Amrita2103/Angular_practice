@@ -1,7 +1,7 @@
 import { Component, computed, effect, signal, WritableSignal } from '@angular/core';
 import { RouterLink, RouterOutlet } from '@angular/router';
 import { Profile } from './profile/profile';
-import { FormsModule } from '@angular/forms';
+import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators} from '@angular/forms';
 import { SearchBox } from './search-box/search-box';
 import { DisplayCount } from './display-count/display-count';
 import { ControlCount } from './control-count/control-count';
@@ -9,7 +9,7 @@ import { CommonModule } from '@angular/common';
 import { TrimTextPipe } from './custom-pipe/trim-text-pipe';
 
 @Component({
-  imports: [CommonModule, RouterOutlet, Profile, FormsModule, SearchBox, DisplayCount,ControlCount, TrimTextPipe, RouterOutlet, RouterLink],
+  imports: [CommonModule, RouterOutlet, Profile, FormsModule, SearchBox, DisplayCount,ControlCount, TrimTextPipe, RouterOutlet, RouterLink, ReactiveFormsModule],
   selector: 'app-root',
   styleUrl: './app.css',
   templateUrl: './app.html',
@@ -38,7 +38,17 @@ export class App {
   isLogin = signal(true)
   users9 = signal(["Amrita", "aakash", "diya", "riya", "suhani"])
   age =20
-  
+  loginForm = new FormGroup({
+    name: new FormControl('',[Validators.required]),
+    email: new FormControl('',[Validators.required, Validators.email]),
+    password: new FormControl()
+  })
+  get name10(){
+    return this.loginForm.get("name")
+  }
+  get email10(){
+    return this.loginForm.get("email")
+  }
   userData3 = signal({
     name: "AMRITA",
     age: 23,
@@ -123,5 +133,16 @@ export class App {
     
       this.userData3.update((item) => ({...item, [key]:val}))
     
+  }
+  handleProfile(){
+    console.log(this.loginForm.value);
+    
+  }
+  reset(){
+    this.loginForm.setValue({
+      name:'',
+      password: '',
+      email:''
+    })
   }
 }
